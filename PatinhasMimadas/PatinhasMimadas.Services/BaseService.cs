@@ -12,17 +12,17 @@ namespace PatinhasMimadas.Services
 
         public OperationResult<T> ExecuteOperation<T>(Func<T> func)
         {
-            var transactionOptions = new TransactionOptions
+            TransactionOptions transactionOptions = new TransactionOptions
             {
                 IsolationLevel = IsolationLevel.ReadCommitted,
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
-            using (var transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+            using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
             {
                 try
                 {
-                    var result = func();
+                    T result = func();
                     transactionScope.Complete();
                     return new OperationResult<T>(result);
                 }
@@ -35,12 +35,12 @@ namespace PatinhasMimadas.Services
 
         public OperationResult ExecuteOperation(Action action)
         {
-            var transactionOptions = new TransactionOptions
+            TransactionOptions transactionOptions = new TransactionOptions
             {
                 IsolationLevel = IsolationLevel.ReadCommitted,
                 Timeout = TimeSpan.FromSeconds(30)
             };
-            using (var transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+            using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
             {
                 try
                 {
