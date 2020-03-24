@@ -1,8 +1,30 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using PatinhasMimadas.Common.Resources
+
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    IRequestCultureFeature requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    List<SelectListItem> cultureItems = LocOptions.Value.SupportedUICultures
+         .Select(c => new SelectListItem { Value = c.Name, Text = c.TwoLetterISOLanguageName.ToUpper() })
+         .ToList();
+
+    string returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+
+
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>@LabelResources.Hello</p>
+
+    <div class="language-selector">
+        <form id="selectLanguage" asp-controller="Home" asp-action="SelectLanguage" asp-route-returnUrl="@returnUrl" method="post">
+            <select name="culture" class="form-control selectpicker" id="languageSelector" data-width="auto" onchange="this.form.submit();"
+                    asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>
+        </form>
+    </div>
 </div>
