@@ -23,8 +23,14 @@
 
     <div class="language-selector">
         <form id="selectLanguage" asp-controller="Home" asp-action="SelectLanguage" asp-route-returnUrl="@returnUrl" method="post">
-            <select name="culture" class="form-control selectpicker" id="languageSelector" data-width="auto" onchange="this.form.submit();"
+            <select name="culture" class="form-control selectpicker" id="languageSelector" data-width="auto"
                     asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>
         </form>
     </div>
 </div>
+
+@section scripts {
+    <script asp-add-nonce="true">
+        new App();
+    </script>
+}

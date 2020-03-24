@@ -1,0 +1,27 @@
+{
+    "name": "@types/bootstrap",
+    "version": "4.3.1",
+    "description": "TypeScript definitions for Bootstrap",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "denisname",
+            "url": "https://github.com/denisname",
+            "githubUsername": "denisname"
+        }
+    ],
+    "main": "",
+    "types": "index",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/bootstrap"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/jquery": "*",
+        "popper.js": "^1.14.1"
+    },
+    "typesPublisherContentHash": "4b0565169fc0c6fe3bf8da50a5d342621d05acc98962d4add778a13182bde0dc",
+    "typeScriptVersion": "2.3"
+}

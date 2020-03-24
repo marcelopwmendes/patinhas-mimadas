@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@types/jquery@3.3.31",
+      "destination": "wwwroot/@types/jquery"
+    },
+    {
+      "library": "@types/jquery.validation@1.16.4",
+      "destination": "wwwroot/@types/jquery.validation"
+    },
+    {
+      "library": "@types/bootstrap@4.3.1",
+      "destination": "wwwroot/@types/bootstrap"
+    },
+    {
+      "library": "@types/sizzle@2.3.2",
+      "destination": "wwwroot/@types/sizzle"
+    },
+    {
+      "library": "jquery@3.3.1",
+      "destination": "wwwroot/lib/jquery"
+    },
+    {
+      "library": "jquery-validation@1.19.1",
+      "destination": "wwwroot/lib/jquery-validation"
+    },
+    {
+      "library": "bootstrap@4.4.1",
+      "destination": "wwwroot/lib/bootstrap"
+    }
+  ]
+}

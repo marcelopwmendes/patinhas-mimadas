@@ -5,11 +5,20 @@
     "removeComments": false,
     "sourceMap": true,
     "target": "es5",
-    "outDir": "./wwwroot/js",
-    "rootDir": "./wwwroot/ts"
+    "experimentalDecorators": true,
+    "typeRoots": [ "wwwroot/@types" ],
+    "types": [ "jquery", "jquery.validation" ],
+    "outDir": "wwwroot/js",
+    "baseUrl": "wwwroot/@types"
   },
+  "include": [
+    "wwwroot/ts/**/*"
+  ],
   "exclude": [
-    "node_modules"
-    //"wwwroot"
-  ]
+    "node_modules",
+    "wwwroot/lib",
+    "wwwroot/js"
+  ],
+  "compileOnSave": true,
+  "typeAcquisition": { "enable": true }
 }

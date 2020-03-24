@@ -1,9 +1,13 @@
-﻿class App {
+﻿
+class App {
 
-    static init() {
+    constructor() {
         this.initLanguageSelector()
     }
 
-    private static initLanguageSelector() {
+    private initLanguageSelector() {
+        $('#languageSelector').change(() => {
+            $('#selectLanguage').submit();
+        });
     }
 }
