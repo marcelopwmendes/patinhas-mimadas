@@ -7,20 +7,24 @@ C#.NET Solution that gives support to a Bath and Shearing Store called Patinhas 
 
 Functionalities:
 
-- Web site
-Gave basic business information (Contact, Opening Hours...)
-Support Portuguese and English languages
-Login System
-Customers can schedule baths and shearing online
+<ul> - Web site
+<li> Gave basic business information (Contact, Opening Hours...) </li>
+<li> Support Portuguese and English languages </li>
+<li> Login System </li>
+<li> Customers can schedule baths and shearing online </li>
+</ul>
+<br>
 
-- Desktop App
-Employees login
-Employees can schedule baths and shearing to customers
-Generate invoices
-The manager can insert and update services
+<ul> - Desktop App
+<li> Employees login </li>
+<li> Employees can schedule baths and shearing to customers </li>
+<li> Generate invoices </li>
+<li> The manager can insert and update services </li>
+</ul>
 
-- Manage business information
-Insert new customers and modify them if necessary
-Schedule baths and shearing
-Insert and update service costs
-Generate invoices
+<ul> - Manage business information
+<li> Insert new customers and modify them if necessary </li>
+<li> Schedule baths and shearing </li>
+<li> Insert and update service costs </li>
+<li> Generate invoices </li>
+</ul>
