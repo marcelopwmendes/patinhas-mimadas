@@ -10,12 +10,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>LabelResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\TitlesResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TitlesResource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\LabelResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LabelResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\TitlesResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TitlesResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
