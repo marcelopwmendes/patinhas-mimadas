@@ -25,10 +25,6 @@
     {
       "library": "jquery-validation@1.19.1",
       "destination": "wwwroot/lib/jquery-validation"
-    },
-    {
-      "library": "bootstrap@4.4.1",
-      "destination": "wwwroot/lib/bootstrap"
     }
   ]
 }

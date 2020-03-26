@@ -4,9 +4,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>@LabelResources.Hello</p>
+<div class="welcome-div text-center">
+    <h1 class="welcome-text-title">@Html.Raw(TitlesResource.Welcome)</h1>
+    <p class="welcome-text-subtitle">@TitlesResource.ExactlyWhatYourDogNeeds</p>
 </div>
 
 @section scripts {

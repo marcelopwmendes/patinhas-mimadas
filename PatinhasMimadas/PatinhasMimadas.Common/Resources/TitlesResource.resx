@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>Sobre</value>
   </data>
+  <data name="ExactlyWhatYourDogNeeds" xml:space="preserve">
+    <value>Exatamente o que o seu cão precisa</value>
+  </data>
   <data name="GetInTouch" xml:space="preserve">
     <value>Entre em contacto</value>
   </data>
@@ -131,5 +134,8 @@
   </data>
   <data name="Services" xml:space="preserve">
     <value>Serviços</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Bem-vindo &lt;br&gt; à Patinhas Mimadas</value>
   </data>
 </root>

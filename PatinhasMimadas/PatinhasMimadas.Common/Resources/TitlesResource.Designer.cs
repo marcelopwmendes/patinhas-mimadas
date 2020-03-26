@@ -70,6 +70,15 @@ namespace PatinhasMimadas.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exatamente o que o seu cão precisa.
+        /// </summary>
+        public static string ExactlyWhatYourDogNeeds {
+            get {
+                return ResourceManager.GetString("ExactlyWhatYourDogNeeds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entre em contacto.
         /// </summary>
         public static string GetInTouch {
@@ -102,6 +111,15 @@ namespace PatinhasMimadas.Common.Resources {
         public static string Services {
             get {
                 return ResourceManager.GetString("Services", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bem-vindo &lt;br&gt; à Patinhas Mimadas.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }
