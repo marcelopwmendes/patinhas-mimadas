@@ -61,6 +61,24 @@ namespace PatinhasMimadas.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desde que abrimos as nossas portas, a Patinhas Mimadas estabelece um compromisso com a satisfação do cliente. A empresa não seria o que é hoje se não fosse pelo incentivo de manter esse padrão de excelência..
+        /// </summary>
+        public static string About1 {
+            get {
+                return ResourceManager.GetString("About1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acreditamos que é essencial colocar o cliente em primeiro lugar, oferecendo produtos e serviços excecionais. Entre em contacto connosco hoje mesmo para conhecer as nossas ofertas..
+        /// </summary>
+        public static string About2 {
+            get {
+                return ResourceManager.GetString("About2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Olá !.
         /// </summary>
         public static string Hello {

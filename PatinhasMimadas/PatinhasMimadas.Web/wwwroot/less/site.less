@@ -2,10 +2,13 @@
 
 body {
     background-color: @white;
+    margin: 0;
 }
 
 a {
     color: inherit;
+    text-decoration: none;
+    scroll-behavior: smooth;
 }
 
 a:hover {
@@ -33,6 +36,7 @@ li {
     font-size: 22px;
     color: @white;
     position: relative;
+    text-decoration: none;
 }
 
 .horizontal-row {
@@ -47,18 +51,21 @@ li {
     padding-left: 6%;
     font-size: 14px;
     position: relative;
+    text-decoration: none;
 }
 
 .language-selector {
     position: absolute;
     right: 3%;
-    top: 2em;
+    top: 1.8em;
 }
 
 #languageSelector {
     background-color: @green;
     color: @white;
     border-color: transparent;
+    width: 5em;
+    height: 2em;
 }
 
 .content-body {
@@ -72,22 +79,44 @@ li {
     background-size: cover;
     background-position-y: center;
     background-position-x: center;
-    margin-top: -1em;
+    margin-top: -5em;
     font-family: sans-serif;
     color: @white;
+    text-align: center;
 }
 
 .welcome-text-title {
-    padding-top: 1.6em;
+    padding-top: 1.5em;
     font-size: 5.5em;
 }
 
 .welcome-text-subtitle {
-    padding-top: inherit;
+    margin-top: -1em;
     font-size: 1.75em;
 }
 
-#map {
-    height: 400px; /* The height is 400 pixels */
-    width: 100%; /* The width is the width of the web page */
+.about-div {
+    background-color: @blue;
+    height: 35em;
+    width: 100%;
+    margin-top: -3.8em;
+    color: @black;
+    font-family: sans-serif;
+    text-align: left;
+}
+
+.about-div-text {
+    padding-left: 9em;
+}
+
+.about-text-title {
+    padding-top: 1.5em;
+    font-size: 4.5em;
+    width: 40%;
+}
+
+.about-text-subtitle {
+    margin-top: -1em;
+    font-size: 1.25em;
+    width: 40%;
 }

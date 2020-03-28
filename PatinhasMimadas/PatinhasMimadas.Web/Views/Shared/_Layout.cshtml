@@ -25,17 +25,17 @@
 </head>
 <body>
 
-    <header>
+    <header id="begin">
         <div class="header">
-            <a class="title" asp-area="" asp-controller="Home" asp-action="Index">Patinhas Mimadas</a>
+            <a class="title" asp-area="" asp-controller="Home" asp-action="Index">@TitlesResource.Title</a>
             <br />
             <div class="horizontal-row"></div>
             <ul class="subtitle">
                 <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Index">@TitlesResource.Home</a>
+                    <a href="#begin">@TitlesResource.Home</a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy">@TitlesResource.About</a>
+                    <a href="#about">@TitlesResource.About</a>
                 </li>
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Privacy">@TitlesResource.Services</a>

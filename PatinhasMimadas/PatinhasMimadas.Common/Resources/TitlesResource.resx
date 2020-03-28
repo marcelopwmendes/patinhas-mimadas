@@ -135,6 +135,9 @@
   <data name="Services" xml:space="preserve">
     <value>Serviços</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Patinhas Mimadas</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Bem-vindo &lt;br&gt; à Patinhas Mimadas</value>
   </data>

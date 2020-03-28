@@ -115,6 +115,15 @@ namespace PatinhasMimadas.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patinhas Mimadas.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bem-vindo &lt;br&gt; à Patinhas Mimadas.
         /// </summary>
         public static string Welcome {

@@ -4,10 +4,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="welcome-div text-center">
+
+<div class="welcome-div">
     <h1 class="welcome-text-title">@Html.Raw(TitlesResource.Welcome)</h1>
     <p class="welcome-text-subtitle">@TitlesResource.ExactlyWhatYourDogNeeds</p>
 </div>
+
+<div class="about-div" id="about">
+    <div class="about-div-text">
+        <h1 class="about-text-title">@TitlesResource.Title</h1>
+        <p class="about-text-subtitle">@LabelResources.About1</p>
+        <br />
+        <p class="about-text-subtitle">@LabelResources.About2</p>
+    </div>
+</div>
+
 
 @section scripts {
     <script asp-add-nonce="true">
