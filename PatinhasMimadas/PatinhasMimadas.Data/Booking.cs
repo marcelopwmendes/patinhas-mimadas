@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PatinhasMimadas.Data.Models
+namespace PatinhasMimadas.Data
 {
-    public partial class Bookings
+    public partial class Booking
     {
         public Guid Id { get; set; }
         public DateTime Date { get; set; }
@@ -11,5 +11,9 @@ namespace PatinhasMimadas.Data.Models
         public Guid ServiceId { get; set; }
         public Guid? CustomerId { get; set; }
         public Guid? EmployeeId { get; set; }
+
+        public virtual Customer Customer { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Service Service { get; set; }
     }
 }

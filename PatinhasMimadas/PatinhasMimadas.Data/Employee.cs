@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PatinhasMimadas.Data.Models
+namespace PatinhasMimadas.Data
 {
-    public partial class Employers
+    public partial class Employee
     {
+        public Employee()
+        {
+            Bookings = new HashSet<Booking>();
+        }
+
         public Guid Id { get; set; }
         public string Name { get; set; }
         public long? Phone { get; set; }
@@ -13,5 +18,9 @@ namespace PatinhasMimadas.Data.Models
         public string Password { get; set; }
         public Guid PasswordSalt { get; set; }
         public Guid EmployeeRoleId { get; set; }
+        public bool? Active { get; set; }
+
+        public virtual EmployeeRole EmployeeRole { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace PatinhasMimadas.Data.Models
+namespace PatinhasMimadas.Data
 {
     public partial class PatinhasMimadasContext : DbContext
     {
@@ -15,11 +15,11 @@ namespace PatinhasMimadas.Data.Models
         {
         }
 
-        public virtual DbSet<Bookings> Bookings { get; set; }
-        public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<EmployeeRoles> EmployeeRoles { get; set; }
-        public virtual DbSet<Employers> Employers { get; set; }
-        public virtual DbSet<Services> Services { get; set; }
+        public virtual DbSet<Booking> Booking { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<EmployeeRole> EmployeeRole { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,14 +31,30 @@ namespace PatinhasMimadas.Data.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Bookings>(entity =>
+            modelBuilder.Entity<Booking>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Bookings_Customers");
+
+                entity.HasOne(d => d.Employee)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.EmployeeId)
+                    .HasConstraintName("FK_Bookings_Employers");
+
+                entity.HasOne(d => d.Service)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.ServiceId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Bookings_Services");
             });
 
-            modelBuilder.Entity<Customers>(entity =>
+            modelBuilder.Entity<Customer>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
@@ -52,18 +68,18 @@ namespace PatinhasMimadas.Data.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<EmployeeRoles>(entity =>
+            modelBuilder.Entity<EmployeeRole>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Employers>(entity =>
+            modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -73,11 +89,17 @@ namespace PatinhasMimadas.Data.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.EmployeeRole)
+                    .WithMany(p => p.Employers)
+                    .HasForeignKey(d => d.EmployeeRoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Employers_EmployeeRoles");
             });
 
-            modelBuilder.Entity<Services>(entity =>
+            modelBuilder.Entity<Service>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
