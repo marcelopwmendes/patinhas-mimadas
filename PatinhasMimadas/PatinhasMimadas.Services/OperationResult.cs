@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatinhasMimadas.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace PatinhasMimadas.Services
     {
         public bool HasSucceeded { get; set; }
         public Exception Exception { get; set; }
+        public ErrorEnum Error { get; set; }
+        public string ErrorDescription { get; set; }
 
         public OperationResult(bool hasSucceeded)
         {
@@ -26,6 +29,8 @@ namespace PatinhasMimadas.Services
         {
             HasSucceeded = false;
             Exception = ex;
+            Error = ErrorEnum.System;
+            ErrorDescription = ex.Message;
         }
 
         public OperationResult()
@@ -47,6 +52,13 @@ namespace PatinhasMimadas.Services
         public OperationResult(Exception ex) : base(ex)
         {
         }
-    
+
+        public OperationResult(Exception ex, ErrorEnum error) : base(ex)
+        {
+            Error = error;
+            ErrorDescription = ex.Message;
+        }
+
+
     }
 }
