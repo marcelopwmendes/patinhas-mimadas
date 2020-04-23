@@ -22,5 +22,6 @@ namespace PatinhasMimadas.API
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

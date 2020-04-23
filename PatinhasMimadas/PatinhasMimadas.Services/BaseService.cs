@@ -55,5 +55,50 @@ namespace PatinhasMimadas.Services
             }
         }
 
+        public async Task<OperationResult<T>> ExecuteOperationAsync<T>(Func<Task<T>> func)
+        {
+            TransactionOptions transactionOptions = new TransactionOptions
+            {
+                IsolationLevel = IsolationLevel.ReadCommitted,
+                Timeout = TimeSpan.FromSeconds(30)
+            };
+
+            using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+            {
+                try
+                {
+                    T result = await func();
+                    transactionScope.Complete();
+                    return new OperationResult<T>(result);
+                }
+                catch (Exception ex)
+                {
+                    return new OperationResult<T>(ex);
+                }
+            }
+        }
+
+        public async Task<OperationResult> ExecuteOperationAsync(Func<Task> func)
+        {
+            TransactionOptions transactionOptions = new TransactionOptions
+            {
+                IsolationLevel = IsolationLevel.ReadCommitted,
+                Timeout = TimeSpan.FromSeconds(30)
+            };
+            using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+            {
+                try
+                {
+                    await func();
+                    transactionScope.Complete();
+                    return new OperationResult(true);
+                }
+                catch (Exception ex)
+                {
+                    return new OperationResult(ex);
+                }
+            }
+        }
+
     }
 }

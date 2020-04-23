@@ -9,5 +9,6 @@ namespace PatinhasMimadas.Services.Interfaces
     public interface IEmployeeRoleService
     {
         Task<OperationResult<List<EmployeeRoleServiceModel>>> GetAsync();
+        Task<OperationResult> AddAsync(EmployeeRoleServiceModel model);
     }
 }

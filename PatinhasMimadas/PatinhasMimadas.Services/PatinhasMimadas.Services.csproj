@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PatinhasMimadas.Common\PatinhasMimadas.Common.csproj" />
+    <ProjectReference Include="..\PatinhasMimadas.DataAccess\PatinhasMimadas.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

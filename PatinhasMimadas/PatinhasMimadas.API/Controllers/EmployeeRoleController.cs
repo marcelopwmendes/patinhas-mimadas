@@ -11,7 +11,7 @@ using PatinhasMimadas.Services.Models;
 
 namespace PatinhasMimadas.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class EmployeeRoleController : BaseController
     {
@@ -22,6 +22,13 @@ namespace PatinhasMimadas.API.Controllers
             _service = service;
         }
 
+        [HttpGet]
+        public string Index()
+        {
+            return "Oi";
+        }
+
+        [Route("list")]
         [HttpGet]
         public async Task<ServiceCollectionResult<EmployeeRoleApiModel>> List()
         {
@@ -36,6 +43,26 @@ namespace PatinhasMimadas.API.Controllers
                 ).ToList());
             }
             return Error<ServiceCollectionResult<EmployeeRoleApiModel>>(result.Error);
+        }
+
+        [Route("add")]
+        [HttpPost]
+        public async Task<ServiceResult> Add(EmployeeRoleApiModel model)
+        {
+            OperationResult result = await _service.AddAsync(new EmployeeRoleServiceModel
+            {
+                Id = model.Id,
+                Name = model.Name
+            });
+
+            if (result.HasSucceeded)
+            {
+                return Success(result);
+            }
+            else
+            {
+                return Error<ServiceResult>(result.Error);
+            }
         }
     }
 }
