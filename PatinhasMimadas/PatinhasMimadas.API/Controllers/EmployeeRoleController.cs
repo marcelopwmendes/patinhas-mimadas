@@ -22,17 +22,27 @@ namespace PatinhasMimadas.API.Controllers
             _service = service;
         }
 
+        [Route("get/{id}")]
         [HttpGet]
-        public string Index()
+        public async Task<ServiceResult<EmployeeRoleApiModel>> Get([FromRoute]Guid id)
         {
-            return "Oi";
+            OperationResult<EmployeeRoleServiceModel> result = await _service.GetAsync(id);
+            if (result.HasSucceeded)
+            {
+                return Success<EmployeeRoleApiModel>(new EmployeeRoleApiModel
+                {
+                    Id = result.Result.Id,
+                    Name = result.Result.Name
+                });
+            }
+            return Error<ServiceResult<EmployeeRoleApiModel>>(result.Error);
         }
 
         [Route("list")]
         [HttpGet]
         public async Task<ServiceCollectionResult<EmployeeRoleApiModel>> List()
         {
-            OperationResult<List<EmployeeRoleServiceModel>> result = await _service.GetAsync();
+            OperationResult<List<EmployeeRoleServiceModel>> result = await _service.GetAllAsync();
             if (result.HasSucceeded)
             {
                 return Success<EmployeeRoleApiModel>(result.Result.Select(m => new EmployeeRoleApiModel
@@ -51,6 +61,26 @@ namespace PatinhasMimadas.API.Controllers
         {
             OperationResult result = await _service.AddAsync(new EmployeeRoleServiceModel
             {
+                Id = Guid.NewGuid(),
+                Name = model.Name
+            });
+
+            if (result.HasSucceeded)
+            {
+                return Success(result);
+            }
+            else
+            {
+                return Error<ServiceResult>(result.Error);
+            }
+        }
+
+        [Route("update")]
+        [HttpPut]
+        public async Task<ServiceResult> Update(EmployeeRoleApiModel model)
+        {
+            OperationResult result = await _service.UpdateAsync(new EmployeeRoleServiceModel
+            {
                 Id = model.Id,
                 Name = model.Name
             });
@@ -64,5 +94,22 @@ namespace PatinhasMimadas.API.Controllers
                 return Error<ServiceResult>(result.Error);
             }
         }
+
+        [Route("delete/{id}")]
+        [HttpDelete]
+        public async Task<ServiceResult> Delete([FromRoute]Guid id)
+        {
+            OperationResult result = await _service.DeleteAsync(id);
+
+            if (result.HasSucceeded)
+            {
+                return Success(result);
+            }
+            else
+            {
+                return Error<ServiceResult>(result.Error);
+            }
+        }
+
     }
 }

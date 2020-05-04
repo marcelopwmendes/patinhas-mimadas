@@ -9,12 +9,14 @@ namespace PatinhasMimadas.DataAccess
 {
     public interface IEmployeeRoleDataAccess
     {
-        Task<IList<EmployeeRoleDataAccessModel>> GetAll();
-
         Task<EmployeeRoleDataAccessModel> Get(Guid id);
+
+        Task<IList<EmployeeRoleDataAccessModel>> GetAll();
 
         Task Add(EmployeeRoleDataAccessModel entity);
 
         Task Update(EmployeeRoleDataAccessModel entity);
+        
+        Task Delete(Guid id);
     }
 }

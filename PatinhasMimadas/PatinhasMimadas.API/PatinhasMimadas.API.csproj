@@ -12,9 +12,5 @@
     <ProjectReference Include="..\PatinhasMimadas.Services\PatinhasMimadas.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
-
 
 </Project>

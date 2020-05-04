@@ -1,7 +1,9 @@
-﻿using PatinhasMimadas.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PatinhasMimadas.Data;
 using PatinhasMimadas.DataAccess.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,23 +16,59 @@ namespace PatinhasMimadas.DataAccess
             using (var context = new PatinhasMimadasContext())
             {
                 context.EmployeeRole.Add(new EmployeeRole { Id = entity.Id, Name = entity.Name });
-                await context.SaveChangesAsync();
+                await context.SaveChangesAsync().ConfigureAwait(false);
             };
         }
 
-        public Task<EmployeeRoleDataAccessModel> Get(Guid id)
+        public async Task<EmployeeRoleDataAccessModel> Get(Guid id)
         {
-            throw new NotImplementedException();
+            using (var context = new PatinhasMimadasContext())
+            {
+                EmployeeRole entity = await context.EmployeeRole
+                    .Where(e => e.Id == id).SingleOrDefaultAsync().ConfigureAwait(false);
+
+                if (entity != null)
+                {
+                    return new EmployeeRoleDataAccessModel { Id = entity.Id, Name = entity.Name };
+                }
+
+                return null;
+            };
         }
 
-        public Task<IList<EmployeeRoleDataAccessModel>> GetAll()
+        public async Task<IList<EmployeeRoleDataAccessModel>> GetAll()
         {
-            throw new NotImplementedException();
+            using (var context = new PatinhasMimadasContext())
+            {
+                return await context.EmployeeRole
+                    .Select(e => new EmployeeRoleDataAccessModel { Id = e.Id, Name = e.Name }).ToListAsync().ConfigureAwait(false);
+            };
         }
 
-        public Task Update(EmployeeRoleDataAccessModel entity)
+        public async Task Update(EmployeeRoleDataAccessModel entity)
         {
-            throw new NotImplementedException();
+            using (var context = new PatinhasMimadasContext())
+            {
+                context.EmployeeRole
+                    .Update(new EmployeeRole { Id = entity.Id, Name = entity.Name });
+
+                await context.SaveChangesAsync().ConfigureAwait(false);
+            };
+        }
+
+        public async Task Delete(Guid id)
+        {
+            using (var context = new PatinhasMimadasContext())
+            {
+                EmployeeRole entity = context.EmployeeRole.Where(e => e.Id == id).SingleOrDefault();
+
+                if (entity != null)
+                {
+                    context.EmployeeRole.Remove(entity);
+                    await context.SaveChangesAsync().ConfigureAwait(false);
+                }
+
+            };
         }
     }
 }
