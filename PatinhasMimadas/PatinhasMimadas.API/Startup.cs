@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PatinhasMimadas.Data;
 using PatinhasMimadas.DataAccess;
+using PatinhasMimadas.DataAccess.Interfaces;
 using PatinhasMimadas.Services;
 using PatinhasMimadas.Services.Interfaces;
 
@@ -32,6 +33,9 @@ namespace PatinhasMimadas.API
             services.AddControllers();
             services.AddTransient<IEmployeeRoleService, EmployeeRoleService>();
             services.AddTransient<IEmployeeRoleDataAccess, EmployeeRoleDataAccess>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IEmployeeDataAccess, EmployeeDataAccess>();
+            services.AddTransient<IAccountService, AccountService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

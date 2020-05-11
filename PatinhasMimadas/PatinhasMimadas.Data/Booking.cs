@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PatinhasMimadas.Data
 {
+    [Table("Bookings")]
     public partial class Booking
     {
         public Guid Id { get; set; }

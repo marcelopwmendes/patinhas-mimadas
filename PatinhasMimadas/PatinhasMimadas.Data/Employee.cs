@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PatinhasMimadas.Data
 {
+    [Table("Employers")]
+
     public partial class Employee
     {
         public Employee()
@@ -19,6 +22,7 @@ namespace PatinhasMimadas.Data
         public Guid PasswordSalt { get; set; }
         public Guid EmployeeRoleId { get; set; }
         public bool? Active { get; set; }
+        public string Email { get; set; }
 
         public virtual EmployeeRole EmployeeRole { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PatinhasMimadas.Data
 {
+    [Table("Services")]
     public partial class Service
     {
         public Service()

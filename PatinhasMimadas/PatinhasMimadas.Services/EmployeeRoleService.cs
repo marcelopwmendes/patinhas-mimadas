@@ -1,4 +1,5 @@
 ﻿using PatinhasMimadas.DataAccess;
+using PatinhasMimadas.DataAccess.Interfaces;
 using PatinhasMimadas.DataAccess.Models;
 using PatinhasMimadas.Services.Interfaces;
 using PatinhasMimadas.Services.Models;
@@ -44,7 +45,7 @@ namespace PatinhasMimadas.Services
            {
                await _dataAccess.Add(new EmployeeRoleDataAccessModel
                {
-                   Id = model.Id,
+                   Id = Guid.NewGuid(),
                    Name = model.Name
                });
            });

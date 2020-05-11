@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatinhasMimadas.DataAccess
+namespace PatinhasMimadas.DataAccess.Interfaces
 {
     public interface IEmployeeRoleDataAccess
     {

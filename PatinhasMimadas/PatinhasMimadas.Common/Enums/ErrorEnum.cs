@@ -11,7 +11,8 @@ namespace PatinhasMimadas.Common.Enums
         None = 0,
         NotFound = 1,
         System = 2,
-        BadRequest = 3
+        BadRequest = 3,
+        Unauthorized = 4
     }
 
     public static class ErrorMethods
@@ -28,6 +29,9 @@ namespace PatinhasMimadas.Common.Enums
 
                 case ErrorEnum.None:
                     return HttpStatusCode.OK;
+
+                case ErrorEnum.Unauthorized:
+                    return HttpStatusCode.Unauthorized;
 
                 default:
                     return HttpStatusCode.BadRequest;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PatinhasMimadas.Data;
+using PatinhasMimadas.DataAccess.Interfaces;
 using PatinhasMimadas.DataAccess.Models;
 using System;
 using System.Collections.Generic;
