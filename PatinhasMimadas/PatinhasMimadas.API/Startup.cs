@@ -36,6 +36,9 @@ namespace PatinhasMimadas.API
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IEmployeeDataAccess, EmployeeDataAccess>();
             services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<ICustomerDataAccess, CustomerDataAccess>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -16,7 +16,7 @@ namespace PatinhasMimadas.Services.Interfaces
         Task<OperationResult> UpdateAsync(EmployeeServiceModel model);
         Task<OperationResult> DeleteAsync(Guid id);
         Task<OperationResult> UpdateSalaryAsync(Guid id, double value);
-        Task<OperationResult> VerifyCredentials(Guid loggedId, string password);
+        Task<OperationResult> VerifyCredentials(Guid id, string password);
         Task<OperationResult> ChangePassword(Guid id, string password);
         Task<OperationResult<EmployeeServiceModel>> VerifyEmail(string email);
     }

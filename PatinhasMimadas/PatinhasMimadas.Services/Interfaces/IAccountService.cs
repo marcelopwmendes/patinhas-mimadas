@@ -8,6 +8,7 @@ namespace PatinhasMimadas.Services.Interfaces
     public interface IAccountService
     {
         string EncriptPassword(string password, Guid salt);
-        Task<OperationResult<string>> SendNewPassword(string email);
+        Task<OperationResult<string>> SendNewPassword(string email, string newPassword);
+        string GeneratePassword();
     }
 }

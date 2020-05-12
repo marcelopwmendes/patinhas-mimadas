@@ -30,7 +30,7 @@ namespace PatinhasMimadas.Services
             }
         }
 
-        public async Task<OperationResult<string>> SendNewPassword(string email)
+        public async Task<OperationResult<string>> SendNewPassword(string email, string newPassword)
         {
             //TODO: Create business email
             SmtpClient smtpClient = new SmtpClient();
@@ -40,11 +40,25 @@ namespace PatinhasMimadas.Services
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("marcelopwmendes@gmail.com", "Marcelo Mendes");
             mail.To.Add(new MailAddress(email));
-            mail.Subject = "Test App";
-            mail.Body = "Test";
+            mail.Subject = "Recuperar Password";
+            mail.Body = "Devido ao pedido de recuperação, enviamos aqui a sua nova password: " + newPassword;
             smtpClient.Host = "smtp.gmail.com";
             smtpClient.Send(mail);
             return new OperationResult<string>(email);
+        }
+
+        public string GeneratePassword()
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            char[] stringChars = new char[8];
+            Random random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new String(stringChars);
         }
     }
 }

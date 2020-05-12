@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PatinhasMimadas.API.Models;
 using PatinhasMimadas.Common.Enums;
@@ -13,12 +14,12 @@ namespace PatinhasMimadas.API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class EmployeeController : BaseController
+    public class CustomerController : BaseController
     {
-        private readonly IEmployeeService _service;
+        private readonly ICustomerService _service;
         private readonly IAccountService _accountService;
 
-        public EmployeeController(IEmployeeService service, IAccountService accountService)
+        public CustomerController(ICustomerService service, IAccountService accountService)
         {
             _service = service;
             _accountService = accountService;
@@ -26,43 +27,37 @@ namespace PatinhasMimadas.API.Controllers
 
         [Route("get/{id}")]
         [HttpGet]
-        public async Task<ServiceResult<EmployeeApiModel>> Get([FromRoute]Guid id)
+        public async Task<ServiceResult<CustomerApiModel>> Get([FromRoute]Guid id)
         {
-            OperationResult<EmployeeServiceModel> result = await _service.GetAsync(id);
+            OperationResult<CustomerServiceModel> result = await _service.GetAsync(id);
             if (result.HasSucceeded)
             {
-                return Success<EmployeeApiModel>(new EmployeeApiModel
+                return Success<CustomerApiModel>(new CustomerApiModel
                 {
                     Id = result.Result.Id,
                     Name = result.Result.Name,
                     Phone = result.Result.Phone,
-                    Birthdate = result.Result.Birthdate,
-                    Salary = result.Result.Salary,
-                    EmployeeRoleId = result.Result.EmployeeRoleId,
                     Active = result.Result.Active,
                     Password = result.Result.Password,
                     Email = result.Result.Email
                 });
             }
 
-            return Error<ServiceResult<EmployeeApiModel>>(result.Error);
+            return Error<ServiceResult<CustomerApiModel>>(result.Error);
         }
 
         [Route("list/all")]
         [HttpGet]
-        public async Task<ServiceCollectionResult<EmployeeApiModel>> ListAll()
+        public async Task<ServiceCollectionResult<CustomerApiModel>> ListAll()
         {
-            OperationResult<List<EmployeeServiceModel>> result = await _service.GetAllAsync();
+            OperationResult<List<CustomerServiceModel>> result = await _service.GetAllAsync();
             if (result.HasSucceeded)
             {
-                return Success<EmployeeApiModel>(result.Result.Select(m => new EmployeeApiModel
+                return Success<CustomerApiModel>(result.Result.Select(m => new CustomerApiModel
                 {
                     Id = m.Id,
                     Name = m.Name,
                     Phone = m.Phone,
-                    Birthdate = m.Birthdate,
-                    Salary = m.Salary,
-                    EmployeeRoleId = m.EmployeeRoleId,
                     Active = m.Active,
                     Password = m.Password,
                     Email = m.Email
@@ -70,70 +65,19 @@ namespace PatinhasMimadas.API.Controllers
                 ).ToList());
             }
 
-            return Error<ServiceCollectionResult<EmployeeApiModel>>(result.Error);
-        }
-
-        [Route("list/actives")]
-        [HttpGet]
-        public async Task<ServiceCollectionResult<EmployeeApiModel>> ListActives()
-        {
-            OperationResult<List<EmployeeServiceModel>> result = await _service.GetActivesAsync();
-            if (result.HasSucceeded)
-            {
-                return Success<EmployeeApiModel>(result.Result.Select(m => new EmployeeApiModel
-                {
-                    Id = m.Id,
-                    Name = m.Name,
-                    Phone = m.Phone,
-                    Birthdate = m.Birthdate,
-                    Salary = m.Salary,
-                    EmployeeRoleId = m.EmployeeRoleId,
-                    Active = m.Active,
-                    Email = m.Email
-                }
-                ).ToList());
-            }
-
-            return Error<ServiceCollectionResult<EmployeeApiModel>>(result.Error);
-        }
-
-        [Route("list/inactives")]
-        [HttpGet]
-        public async Task<ServiceCollectionResult<EmployeeApiModel>> ListInactives()
-        {
-            OperationResult<List<EmployeeServiceModel>> result = await _service.GetInactivesAsync();
-            if (result.HasSucceeded)
-            {
-                return Success<EmployeeApiModel>(result.Result.Select(m => new EmployeeApiModel
-                {
-                    Id = m.Id,
-                    Name = m.Name,
-                    Phone = m.Phone,
-                    Birthdate = m.Birthdate,
-                    Salary = m.Salary,
-                    EmployeeRoleId = m.EmployeeRoleId,
-                    Active = m.Active,
-                    Email = m.Email
-                }
-                ).ToList());
-            }
-
-            return Error<ServiceCollectionResult<EmployeeApiModel>>(result.Error);
+            return Error<ServiceCollectionResult<CustomerApiModel>>(result.Error);
         }
 
         [Route("add")]
         [HttpPost]
-        public async Task<ServiceResult> Add(EmployeeApiModel model)
+        public async Task<ServiceResult> Add(CustomerApiModel model)
         {
             Guid salt = Guid.NewGuid();
-            OperationResult result = await _service.AddAsync(new EmployeeServiceModel
+            OperationResult result = await _service.AddAsync(new CustomerServiceModel
             {
                 Id = Guid.NewGuid(),
                 Name = model.Name,
                 Phone = model.Phone,
-                Birthdate = model.Birthdate,
-                Salary = model.Salary,
-                EmployeeRoleId = model.EmployeeRoleId,
                 Active = model.Active,
                 Password = _accountService.EncriptPassword(model.Password, salt),
                 PasswordSalt = salt,
@@ -150,17 +94,15 @@ namespace PatinhasMimadas.API.Controllers
 
         [Route("update")]
         [HttpPut]
-        public async Task<ServiceResult> Update(EmployeeApiModel model)
+        public async Task<ServiceResult> Update(CustomerApiModel model)
         {
-            OperationResult result = await _service.UpdateAsync(new EmployeeServiceModel
+            OperationResult result = await _service.UpdateAsync(new CustomerServiceModel
             {
                 Id = model.Id,
                 Name = model.Name,
                 Phone = model.Phone,
-                Birthdate = model.Birthdate,
-                EmployeeRoleId = model.EmployeeRoleId,
                 Active = model.Active,
-                Email = model.Email,
+                Email = model.Email
             });
 
             if (result.HasSucceeded)
@@ -191,7 +133,7 @@ namespace PatinhasMimadas.API.Controllers
         {
             if (loggedId == id)
             {
-                OperationResult<EmployeeServiceModel> modelResult = await _service.GetAsync(loggedId);
+                OperationResult<CustomerServiceModel> modelResult = await _service.GetAsync(loggedId);
 
                 if (modelResult.HasSucceeded)
                 {
@@ -221,7 +163,7 @@ namespace PatinhasMimadas.API.Controllers
         [HttpPut]
         public async Task<ServiceResult> ResetPassword(string email)
         {
-            OperationResult<EmployeeServiceModel> modelResult = await _service.VerifyEmail(email);
+            OperationResult<CustomerServiceModel> modelResult = await _service.VerifyEmail(email);
 
             if (modelResult.HasSucceeded)
             {
@@ -247,22 +189,6 @@ namespace PatinhasMimadas.API.Controllers
             }
 
             return Error<ServiceResult>(modelResult.Error);
-        }
-
-        [Route("{loggedId}/update/salary/{id}")]
-        [HttpPut]
-        public async Task<ServiceResult> SalaryUpdate([FromRoute] Guid loggedId, [FromRoute] Guid id, double newSalary)
-        {
-            //TODO Verify permissions of loggedId
-
-            OperationResult result = await _service.UpdateSalaryAsync(id, newSalary);
-
-            if (result.HasSucceeded)
-            {
-                return Success(result);
-            }
-
-            return Error<ServiceResult>(result.Error);
         }
 
     }
