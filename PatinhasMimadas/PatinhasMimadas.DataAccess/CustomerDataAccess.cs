@@ -1,9 +1,9 @@
-﻿using PatinhasMimadas.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PatinhasMimadas.Data;
 using PatinhasMimadas.DataAccess.Interfaces;
 using PatinhasMimadas.DataAccess.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +35,7 @@ namespace PatinhasMimadas.DataAccess
         {
             using (var context = new PatinhasMimadasContext())
             {
-                Customer model = context.Customer.Where(e => e.Id == id).SingleOrDefault();
+                Customer model = await context.Customer.Where(e => e.Id == id).SingleOrDefaultAsync();
                 if (model != null)
                 {
                     model.Active = false;
@@ -49,7 +49,7 @@ namespace PatinhasMimadas.DataAccess
         {
             using (var context = new PatinhasMimadasContext())
             {
-                Customer entity = context.Customer.Where(e => e.Id == id).SingleOrDefault();
+                Customer entity = await context.Customer.Where(e => e.Id == id).SingleOrDefaultAsync();
 
                 if (entity != null)
                 {
@@ -73,7 +73,7 @@ namespace PatinhasMimadas.DataAccess
         {
             using (var context = new PatinhasMimadasContext())
             {
-                Customer entity = context.Customer.Where(e => e.Email == email).SingleOrDefault();
+                Customer entity = await context.Customer.Where(e => e.Email == email).SingleOrDefaultAsync();
 
                 if (entity != null)
                 {

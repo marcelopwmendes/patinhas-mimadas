@@ -26,7 +26,11 @@ namespace PatinhasMimadas.Services
             return await ExecuteOperationAsync(async () =>
             {
                 EmployeeRoleDataAccessModel dataAccessModel = await _dataAccess.Get(id);
-                return new EmployeeRoleServiceModel { Id = dataAccessModel.Id, Name = dataAccessModel.Name };
+                return new EmployeeRoleServiceModel
+                {
+                    Id = dataAccessModel.Id,
+                    Name = dataAccessModel.Name
+                };
             });
         }
 
@@ -35,7 +39,11 @@ namespace PatinhasMimadas.Services
             return await ExecuteOperationAsync(async () =>
             {
                 IList<EmployeeRoleDataAccessModel> dataAccessModels = await _dataAccess.GetAll();
-                return dataAccessModels.Select(e => new EmployeeRoleServiceModel { Id = e.Id, Name = e.Name }).ToList();
+                return dataAccessModels.Select(e => new EmployeeRoleServiceModel
+                {
+                    Id = e.Id,
+                    Name = e.Name
+                }).ToList();
             });
         }
 

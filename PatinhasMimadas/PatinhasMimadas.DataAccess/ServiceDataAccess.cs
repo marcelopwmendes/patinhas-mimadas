@@ -10,34 +10,36 @@ using System.Threading.Tasks;
 
 namespace PatinhasMimadas.DataAccess
 {
-    public class EmployeeRoleDataAccess : IEmployeeRoleDataAccess
+    public class ServiceDataAccess : IServiceDataAccess
     {
-        public async Task Add(EmployeeRoleDataAccessModel model)
+        public async Task Add(ServiceDataAccessModel model)
         {
             using (var context = new PatinhasMimadasContext())
             {
-                context.EmployeeRole.Add(new EmployeeRole
+                context.Service.Add(new Service
                 {
                     Id = model.Id,
-                    Name = model.Name
+                    Name = model.Name,
+                    Price = model.Price
                 });
                 await context.SaveChangesAsync().ConfigureAwait(false);
             };
         }
 
-        public async Task<EmployeeRoleDataAccessModel> Get(Guid id)
+        public async Task<ServiceDataAccessModel> Get(Guid id)
         {
             using (var context = new PatinhasMimadasContext())
             {
-                EmployeeRole model = await context.EmployeeRole
+                Service model = await context.Service
                     .Where(e => e.Id == id).SingleOrDefaultAsync();
 
                 if (model != null)
                 {
-                    return new EmployeeRoleDataAccessModel
+                    return new ServiceDataAccessModel
                     {
                         Id = model.Id,
-                        Name = model.Name
+                        Name = model.Name,
+                        Price = model.Price
                     };
                 }
 
@@ -45,28 +47,30 @@ namespace PatinhasMimadas.DataAccess
             };
         }
 
-        public async Task<IList<EmployeeRoleDataAccessModel>> GetAll()
+        public async Task<IList<ServiceDataAccessModel>> GetAll()
         {
             using (var context = new PatinhasMimadasContext())
             {
-                return await context.EmployeeRole
-                    .Select(e => new EmployeeRoleDataAccessModel
+                return await context.Service
+                    .Select(e => new ServiceDataAccessModel
                     {
                         Id = e.Id,
-                        Name = e.Name
+                        Name = e.Name,
+                        Price = e.Price
                     }).ToListAsync().ConfigureAwait(false);
             };
         }
 
-        public async Task Update(EmployeeRoleDataAccessModel model)
+        public async Task Update(ServiceDataAccessModel model)
         {
             using (var context = new PatinhasMimadasContext())
             {
-                context.EmployeeRole
-                    .Update(new EmployeeRole
+                context.Service
+                    .Update(new Service
                     {
                         Id = model.Id,
-                        Name = model.Name
+                        Name = model.Name,
+                        Price = model.Price
                     });
 
                 await context.SaveChangesAsync().ConfigureAwait(false);
@@ -77,11 +81,11 @@ namespace PatinhasMimadas.DataAccess
         {
             using (var context = new PatinhasMimadasContext())
             {
-                EmployeeRole model = context.EmployeeRole.Where(e => e.Id == id).SingleOrDefault();
+                Service model = context.Service.Where(e => e.Id == id).SingleOrDefault();
 
                 if (model != null)
                 {
-                    context.EmployeeRole.Remove(model);
+                    context.Service.Remove(model);
                     await context.SaveChangesAsync().ConfigureAwait(false);
                 }
 

@@ -13,9 +13,9 @@ namespace PatinhasMimadas.DataAccess.Interfaces
 
         Task<IList<EmployeeRoleDataAccessModel>> GetAll();
 
-        Task Add(EmployeeRoleDataAccessModel entity);
+        Task Add(EmployeeRoleDataAccessModel model);
 
-        Task Update(EmployeeRoleDataAccessModel entity);
+        Task Update(EmployeeRoleDataAccessModel model);
         
         Task Delete(Guid id);
     }

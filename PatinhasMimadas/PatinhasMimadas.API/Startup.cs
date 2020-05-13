@@ -38,6 +38,8 @@ namespace PatinhasMimadas.API
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<ICustomerDataAccess, CustomerDataAccess>();
+            services.AddTransient<IServiceService, ServiceService>();
+            services.AddTransient<IServiceDataAccess, ServiceDataAccess>();
 
         }
 

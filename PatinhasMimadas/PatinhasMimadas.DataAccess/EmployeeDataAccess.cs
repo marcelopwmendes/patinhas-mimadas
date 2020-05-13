@@ -15,7 +15,7 @@ namespace PatinhasMimadas.DataAccess
         {
             using (var context = new PatinhasMimadasContext())
             {
-                Employee entity = context.Employee.Where(e => e.Id == id).SingleOrDefault();
+                Employee entity = await context.Employee.Where(e => e.Id == id).SingleOrDefaultAsync();
 
                 if (entity != null)
                 {
@@ -42,7 +42,7 @@ namespace PatinhasMimadas.DataAccess
         {
             using (var context = new PatinhasMimadasContext())
             {
-                Employee entity = context.Employee.Where(e => e.Email == email).SingleOrDefault();
+                Employee entity = await context.Employee.Where(e => e.Email == email).SingleOrDefaultAsync();
 
                 if (entity != null)
                 {
@@ -183,7 +183,7 @@ namespace PatinhasMimadas.DataAccess
         {
             using (var context = new PatinhasMimadasContext())
             {
-                Employee model = context.Employee.Where(e => e.Id == id).SingleOrDefault();
+                Employee model = await context.Employee.Where(e => e.Id == id).SingleOrDefaultAsync();
                 if (model != null)
                 {
                     model.Active = false;
