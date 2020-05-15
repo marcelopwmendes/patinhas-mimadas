@@ -79,6 +79,33 @@ namespace PatinhasMimadas.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Esta é a descrição de um produto. Escreva um texto geral curto que inclui os recursos importantes, preço e informações relevantes para o futuro comprador. Considere adicionar uma imagem ou vídeo que mostre a beleza do seu produto e incentive o seu visitante a fazer a compra..
+        /// </summary>
+        public static string DogSelfServiceDescription {
+            get {
+                return ResourceManager.GetString("DogSelfServiceDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esta é a descrição de um produto. Escreva um texto geral curto que inclui os recursos importantes, preço e informações relevantes para o futuro comprador. Considere adicionar uma imagem ou vídeo que mostre a beleza do seu produto e incentive o seu visitante a fazer a compra..
+        /// </summary>
+        public static string DogSittingDescription {
+            get {
+                return ResourceManager.GetString("DogSittingDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esta é a descrição de um produto. Escreva um texto geral curto que inclui os recursos importantes, preço e informações relevantes para o futuro comprador. Considere adicionar uma imagem ou vídeo que mostre a beleza do seu produto e incentive o seu visitante a fazer a compra..
+        /// </summary>
+        public static string DogWashDescription {
+            get {
+                return ResourceManager.GetString("DogWashDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Olá !.
         /// </summary>
         public static string Hello {

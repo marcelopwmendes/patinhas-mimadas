@@ -120,6 +120,15 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="DogSelfService" xml:space="preserve">
+    <value>Self Service</value>
+  </data>
+  <data name="DogSitting" xml:space="preserve">
+    <value>Dog Sitting</value>
+  </data>
+  <data name="DogWash" xml:space="preserve">
+    <value>Dog Washing</value>
+  </data>
   <data name="ExactlyWhatYourDogNeeds" xml:space="preserve">
     <value>Exactly what your dog needs</value>
   </data>

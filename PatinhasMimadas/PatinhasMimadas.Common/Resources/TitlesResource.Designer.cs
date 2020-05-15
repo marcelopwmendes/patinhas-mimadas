@@ -70,6 +70,33 @@ namespace PatinhasMimadas.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Self Service.
+        /// </summary>
+        public static string DogSelfService {
+            get {
+                return ResourceManager.GetString("DogSelfService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dog Sitting.
+        /// </summary>
+        public static string DogSitting {
+            get {
+                return ResourceManager.GetString("DogSitting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Banhos.
+        /// </summary>
+        public static string DogWash {
+            get {
+                return ResourceManager.GetString("DogWash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exatamente o que o seu cão precisa.
         /// </summary>
         public static string ExactlyWhatYourDogNeeds {
