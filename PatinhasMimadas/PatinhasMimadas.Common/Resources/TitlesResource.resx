@@ -141,6 +141,9 @@
   <data name="OpeningHours" xml:space="preserve">
     <value>Horário de Funcionamento</value>
   </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Horário</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Serviços</value>
   </data>

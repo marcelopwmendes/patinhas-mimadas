@@ -79,6 +79,15 @@ namespace PatinhasMimadas.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Venha nos visitar.
+        /// </summary>
+        public static string ComeVisitUs {
+            get {
+                return ResourceManager.GetString("ComeVisitUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Esta é a descrição de um produto. Escreva um texto geral curto que inclui os recursos importantes, preço e informações relevantes para o futuro comprador. Considere adicionar uma imagem ou vídeo que mostre a beleza do seu produto e incentive o seu visitante a fazer a compra..
         /// </summary>
         public static string DogSelfServiceDescription {
@@ -111,6 +120,17 @@ namespace PatinhasMimadas.Common.Resources {
         public static string Hello {
             get {
                 return ResourceManager.GetString("Hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seg - Sex: 9:00 - 18:00
+        ///                &lt;br /&gt; Sáb: 10:00 - 14:00
+        ///                &lt;br /&gt; Dom: Fechado.
+        /// </summary>
+        public static string Schedule {
+            get {
+                return ResourceManager.GetString("Schedule", resourceCulture);
             }
         }
     }

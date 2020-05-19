@@ -123,6 +123,9 @@
   <data name="About2" xml:space="preserve">
     <value>EN_Acreditamos que é essencial colocar o cliente em primeiro lugar, oferecendo produtos e serviços excecionais. Entre em contacto connosco hoje mesmo para conhecer as nossas ofertas.</value>
   </data>
+  <data name="ComeVisitUs" xml:space="preserve">
+    <value>Come visit us</value>
+  </data>
   <data name="DogSelfServiceDescription" xml:space="preserve">
     <value>EN_Esta é a descrição de um produto. Escreva um texto geral curto que inclui os recursos importantes, preço e informações relevantes para o futuro comprador. Considere adicionar uma imagem ou vídeo que mostre a beleza do seu produto e incentive o seu visitante a fazer a compra.</value>
   </data>
@@ -134,5 +137,10 @@
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello !</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Mon - Fri: 9:00am - 6:00pm
+                &lt;br /&gt; Sat: 10:00am - 2:00pm
+                &lt;br /&gt; Sun: Closed</value>
   </data>
 </root>

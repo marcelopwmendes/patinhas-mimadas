@@ -20,7 +20,7 @@
     <img class="logo" src="~/img/patinhas-mimadas-logo.png" alt="logo" />
 </div>
 <div>
-    <div class="services-div">
+    <div class="services-div" id="services">
         <button id="previous"><</button>
         <button id="next">></button>
         <div class="dog-wash">
@@ -44,6 +44,19 @@
                 <p class="service-description"> @LabelResources.DogSelfServiceDescription </p>
             </div>
         </div>
+
+        <div class="location-div">
+            <img class="location-img" src="~/img/location.png" alt="location" />
+        </div>
+        <div class="schedule-div" id="schedule">
+            <p class="schedule-title"> @TitlesResource.Schedule </p>
+            <p class="schedule-subtitle"> @LabelResources.ComeVisitUs </p>
+            <p class="schedule">
+                @Html.Raw(LabelResources.Schedule)
+            </p>
+
+        </div>
+
     </div>
 </div>
 
