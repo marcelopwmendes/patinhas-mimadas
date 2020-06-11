@@ -70,65 +70,31 @@ li {
   font-size: 1.75em;
   padding-top: 4%;
 }
-@media (max-width: 992px) {
-  .title {
-    padding-left: 2rem;
-  }
-  .welcome-text-title {
-    font-size: 72px;
-    padding-top: 15%;
-  }
-}
-@media (max-width: 760px) {
-  .welcome-text-title {
-    font-size: 56px;
-    padding-top: 20%;
-  }
-  .welcome-text-subtitle {
-    font-size: 20px;
-    padding-top: 5%;
-  }
-}
-@media (max-width: 460px) {
-  .welcome-text-title {
-    font-size: 42px;
-    padding-top: 35%;
-  }
-  .welcome-text-subtitle {
-    font-size: 18px;
-    padding-top: 0;
-  }
+/*About Section*/
+.about-row {
+  padding: 5rem 0;
 }
 .about-div {
   background-color: #E1EFF2;
   height: auto;
   width: 100%;
-  margin-top: -3.8em;
   color: #181818;
   font-family: "Hind", sans-serif;
-  text-align: left;
 }
 .about-div-text {
   padding-left: 9em;
 }
 .about-text-title {
-  padding-top: 1.5em;
   font-size: 4.5em;
-  width: 30%;
-  margin-left: 10%;
+  width: 100%;
+  letter-spacing: 3px;
 }
 .about-text-subtitle {
-  margin-top: -1em;
   font-size: 1.25em;
-  width: 30%;
-  margin-left: 10%;
 }
 .logo {
-  width: 50%;
-  position: inherit;
-  text-align: right;
-  margin-top: -33%;
-  margin-left: 50%;
+  padding-left: 5%;
+  width: 100%;
 }
 .services-div {
   height: auto;
@@ -208,4 +174,44 @@ li {
 }
 .schedule {
   font-size: 2em;
+}
+@media (max-width: 992px) {
+  .title {
+    padding-left: 2rem;
+  }
+  .welcome-text-title {
+    font-size: 72px;
+    padding-top: 15%;
+  }
+  .about-div-text {
+    padding-left: 5rem;
+  }
+  .about-text-title {
+    font-size: 3.5rem;
+    width: 100%;
+    letter-spacing: 3px;
+  }
+  .about-text-subtitle {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 760px) {
+  .welcome-text-title {
+    font-size: 56px;
+    padding-top: 20%;
+  }
+  .welcome-text-subtitle {
+    font-size: 20px;
+    padding-top: 5%;
+  }
+}
+@media (max-width: 460px) {
+  .welcome-text-title {
+    font-size: 42px;
+    padding-top: 35%;
+  }
+  .welcome-text-subtitle {
+    font-size: 18px;
+    padding-top: 0;
+  }
 }
