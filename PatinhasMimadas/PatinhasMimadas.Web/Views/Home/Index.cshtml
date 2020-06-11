@@ -5,9 +5,15 @@
 }
 
 
-<div class="welcome-div">
-    <h1 class="welcome-text-title">@Html.Raw(TitlesResource.Welcome)</h1>
-    <p class="welcome-text-subtitle">@TitlesResource.ExactlyWhatYourDogNeeds</p>
+<div class="container-fluid welcome-div">
+    <div class="row h-100">
+        <div class="col-sm-12 welcome-text-col">
+            <h1 class="welcome-text-title">@Html.Raw(TitlesResource.Welcome)</h1>
+        </div>
+        <div class="col-sm-12 welcome-text-col">
+            <p class="welcome-text-subtitle">@TitlesResource.ExactlyWhatYourDogNeeds</p>
+        </div>
+    </div>
 </div>
 
 <div class="about-div" id="about">

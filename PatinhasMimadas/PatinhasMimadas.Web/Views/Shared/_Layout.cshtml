@@ -27,13 +27,10 @@
 </head>
 <body>
 
-    <section id="begin">
+    <section id="begin" class="sticky-top">
         <div class="container-fluid">
             <nav class="header navbar navbar-expand-lg">
                 <a class="title navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@TitlesResource.Title</a>
-                <br />
-                <div class="horizontal-row"></div>
-
                 <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -65,30 +62,12 @@
                         </li>
                     </ul>
                 </div>
-
-                @*<ul class="subtitle">
-                        <li>
-                            <a href="#begin">@TitlesResource.Home</a>
-                        </li>
-                        <li>
-                            <a href="#about">@TitlesResource.About</a>
-                        </li>
-                        <li>
-                            <a href="#services">@TitlesResource.Services</a>
-                        </li>
-                        <li>
-                            <a href="#schedule">@TitlesResource.OpeningHours</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Privacy">@TitlesResource.GetInTouch</a>
-                        </li>
-                    </ul>*@
             </nav>
         </div>
     </section>
 
     <div class="content-body">
-        <main role="main" class="pb-3">
+        <main role="main" class="container-fluid pb-3">
             @RenderBody()
         </main>
     </div>
