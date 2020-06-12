@@ -32,29 +32,52 @@
     </div>
 </div>
 <div>
-    <div class="services-div" id="services">
-        <button id="previous"><</button>
-        <button id="next">></button>
-        <div class="dog-wash">
-            <img class="service-img" src="~/img/dog-wash.png" alt="dog-wash" />
-            <div class="service-text">
-                <p class="service-title"> @TitlesResource.DogWash </p>
-                <p class="service-description"> @LabelResources.DogWashDescription </p>
+    <div id="services" class="services-div carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="service-row row">
+                    <div class="col-lg-6 col-sm-12">
+                        <img class="service-img" src="~/img/dog-wash.png" alt="dog-wash" />
+                    </div>
+                    <div class="service-text col-lg-6 col-sm-12">
+                        <p class="service-title"> @TitlesResource.DogWash </p>
+                        <p class="service-description"> @LabelResources.DogWashDescription </p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="dog-sitting" hidden="hidden">
-            <img class="service-img" src="~/img/dog-sitting.png" alt="dog-sitting" />
-            <div class="service-text">
-                <p class="service-title"> @TitlesResource.DogSitting </p>
-                <p class="service-description"> @LabelResources.DogSittingDescription </p>
+
+            <div class="carousel-item">
+                <div class="service-row row">
+                    <div class="col-lg-6 col-sm-12">
+                        <img class="service-img" src="~/img/dog-sitting.png" alt="dog-sitting" />
+                    </div>
+                    <div class="service-text col-lg-6 col-sm-12">
+                        <p class="service-title"> @TitlesResource.DogSitting </p>
+                        <p class="service-description"> @LabelResources.DogSittingDescription </p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="dog-self-service" hidden="hidden">
-            <img class="service-img" src="~/img/dog-self-service.png" alt="dog-self-service" />
-            <div class="service-text">
-                <p class="service-title"> @TitlesResource.DogSelfService </p>
-                <p class="service-description"> @LabelResources.DogSelfServiceDescription </p>
+
+            <div class="carousel-item">
+                <div class="service-row row">
+                    <div class="col-lg-6 col-sm-12">
+                        <img class="service-img" src="~/img/dog-self-service.png" alt="dog-self-service" />
+                    </div>
+                    <div class="service-text col-lg-6 col-sm-12">
+                        <p class="service-title"> @TitlesResource.DogSelfService </p>
+                        <p class="service-description"> @LabelResources.DogSelfServiceDescription </p>
+                    </div>
+                </div>
             </div>
+
+            <a class="carousel-control-prev" href="#services" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon"> </span>
+            </a>
+
+            <a class="carousel-control-next" href="#services" role="button" data-slide="next">
+                <span class="carousel-control-next-icon"> </span>
+            </a>
+
         </div>
 
         <div class="location-div">
