@@ -80,17 +80,33 @@
 
         </div>
 
-        <div class="location-div">
-            <img class="location-img" src="~/img/location.png" alt="location" />
-        </div>
-        <div class="schedule-div" id="schedule">
-            <p class="schedule-title"> @TitlesResource.Schedule </p>
-            <p class="schedule-subtitle"> @LabelResources.ComeVisitUs </p>
-            <p class="schedule">
-                @Html.Raw(LabelResources.Schedule)
-            </p>
+        <div class="location-schedule-row row">
+            <div class="col-lg-6 col-sm-12">
+                <img class="location-img" src="~/img/location.png" alt="location" />
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="schedule-col">
+                    <p class="schedule-title"> @TitlesResource.Schedule </p>
+                    <p class="schedule-subtitle"> @LabelResources.ComeVisitUs </p>
+                    <p class="schedule">
+                        @Html.Raw(LabelResources.Schedule)
+                    </p>
+                </div>
+            </div>
 
         </div>
+
+        @*<div class="location-div">
+                <img class="location-img" src="~/img/location.png" alt="location" />
+            </div>
+            <div class="schedule-div" id="schedule">
+                <p class="schedule-title"> @TitlesResource.Schedule </p>
+                <p class="schedule-subtitle"> @LabelResources.ComeVisitUs </p>
+                <p class="schedule">
+                    @Html.Raw(LabelResources.Schedule)
+                </p>
+
+            </div>*@
 
     </div>
 </div>

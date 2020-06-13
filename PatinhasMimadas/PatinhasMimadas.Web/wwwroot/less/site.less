@@ -119,6 +119,7 @@ li {
     width: 100%;
 }
 
+/*Services Section*/
 .services-div {
     height: auto;
 }
@@ -156,27 +157,25 @@ li {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
 }
 
-.location-div {
-    width: 50%;
+/*Location and Schedule Section*/
+.location-schedule-row {
     margin-top: 5em;
 }
 
 .location-img {
-    width: 90%;
-    text-align: center;
-    margin-left: 10%;
+    width: 75%;
+    float: right;
 }
 
-.schedule-div {
+.schedule-col {
     background-color: @green;
-    position: absolute;
-    margin-top: -38.4em;
-    margin-left: 52%;
-    width: 44%;
-    height: 38.4em;
+    width: 75%;
     font-family: "Hind", sans-serif;
     color: @white;
     text-align: center;
+    height: 100%;
+    float: left;
+    padding-top: 10%;
 }
 
 .schedule-title {
@@ -192,24 +191,84 @@ li {
 }
 
 @media (max-width: 1528px) {
+    .logo {
+        padding-top: 10%;
+    }
+
     .service-text {
         padding-top: 0;
     }
 }
 
 @media (max-width: 1326px) {
+    .logo {
+        padding-top: 20%;
+    }
+
     .service-description {
         width: 50%;
     }
+
+    .schedule-col {
+        padding-top: 5%;
+    }
 }
 
+@media (max-width: 1276px) {
+    .logo {
+        padding-top: 25%;
+    }
+
+    .schedule-title {
+        font-size: 3.5em;
+    }
+
+    .schedule-subtitle {
+        font-size: 2.5em;
+    }
+
+    .schedule {
+        font-size: 1.75em;
+    }
+}
+
+
 @media (max-width: 1080px) {
+    .about-text-title {
+        font-size: 3rem;
+    }
+
+    .about-text-subtitle {
+        font-size: 1rem;
+    }
+
+    .logo {
+        padding-left: 0;
+        padding-top: 10%;
+    }
+
     .service-description {
         font-size: 1rem;
+    }
+
+    .schedule-title {
+        font-size: 3em;
+    }
+
+    .schedule-subtitle {
+        font-size: 2.25em;
+    }
+
+    .schedule {
+        font-size: 1.5em;
     }
 }
 
 @media (max-width: 991px) {
+    .logo {
+        padding-top: 0;
+    }
+
     .service-img {
         display: none;
     }
@@ -217,9 +276,24 @@ li {
     .service-description {
         font-size: 1.25rem;
     }
-}
 
-@media (max-width: 992px) {
+    .location-schedule-row {
+        padding-bottom: 5rem;
+    }
+
+    .location-img {
+        width: 50%;
+        margin: 0 auto 0 auto;
+        display: block;
+        float: none;
+    }
+
+    .schedule-col {
+        width: 50%;
+        margin: 5% auto;
+        float: none;
+    }
+
     .title {
         padding-left: 2rem;
     }
@@ -231,6 +305,7 @@ li {
 
     .about-div-text {
         padding-left: 5rem;
+        padding-right: 5rem;
     }
 
     .about-text-title {
@@ -241,6 +316,13 @@ li {
 
     .about-text-subtitle {
         font-size: 1rem;
+    }
+
+    .logo {
+        padding-left: 0;
+        width: 50%;
+        margin: 0 auto;
+        display: block;
     }
 
     .service-title {
@@ -268,22 +350,74 @@ li {
     }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 700px) {
+    .schedule-title {
+        font-size: 32px;
+    }
+
+    .schedule-subtitle {
+        font-size: 20px;
+    }
+
+    .schedule {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    .welcome-div {
+        height: 20rem;
+    }
+
     .welcome-text-title {
-        font-size: 42px;
-        padding-top: 35%;
+        font-size: 32px;
     }
 
     .welcome-text-subtitle {
-        font-size: 18px;
-        padding-top: 0;
+        font-size: 16px;
+        padding-top: 5%;
+    }
+
+    .about-row {
+        padding: 0;
+    }
+
+    .about-text-title {
+        font-size: 32px;
+    }
+
+    .about-text-subtitle {
+        font-size: 12px;
     }
 
     .service-title {
-        font-size: 2.8rem;
+        font-size: 32px;
     }
 
     .service-description {
-        font-size: 0.6rem;
+        font-size: 10px;
+    }
+
+    .location-schedule-row {
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .schedule-title {
+        font-size: 20px;
+    }
+
+    .schedule-subtitle {
+        font-size: 16px;
+    }
+
+    .schedule {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .welcome-text-title {
+        padding-top: 25%;
     }
 }
