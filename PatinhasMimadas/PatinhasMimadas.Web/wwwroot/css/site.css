@@ -110,6 +110,7 @@ li {
 .service-text {
   font-family: "Hind", sans-serif;
   text-align: center;
+  padding-top: 5%;
 }
 .service-title {
   font-size: 4.5em;
@@ -154,14 +155,27 @@ li {
 .schedule {
   font-size: 2em;
 }
+@media (max-width: 1528px) {
+  .service-text {
+    padding-top: 0;
+  }
+}
 @media (max-width: 1326px) {
   .service-description {
     width: 50%;
   }
 }
-@media (max-width: 990px) {
+@media (max-width: 1080px) {
+  .service-description {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 991px) {
   .service-img {
     display: none;
+  }
+  .service-description {
+    font-size: 1.25rem;
   }
 }
 @media (max-width: 992px) {
@@ -185,9 +199,6 @@ li {
   }
   .service-title {
     font-size: 3.5rem;
-  }
-  .service-description {
-    font-size: 1rem;
   }
 }
 @media (max-width: 760px) {
