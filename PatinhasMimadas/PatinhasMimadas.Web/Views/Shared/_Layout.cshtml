@@ -53,12 +53,17 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Privacy">@TitlesResource.GetInTouch</a>
                         </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-large btn-dark"> Log In </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-large btn-secondary"> Register </button>
+                        </li>
                         <li class="language-selector nav-item">
                             <form id="selectLanguage" asp-controller="Home" asp-action="SelectLanguage" asp-route-returnUrl="@returnUrl" method="post">
                                 <select name="culture" class="form-control form-control-sm selectpicker bg-dark" id="languageSelector" data-width="auto"
                                         asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>
                             </form>
-
                         </li>
                     </ul>
                 </div>
